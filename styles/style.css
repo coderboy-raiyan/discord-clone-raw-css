@@ -1,0 +1,100 @@
+@layer reset, theme, defaults, layouts, components, utils;
+
+@import url("./theme.css");
+@import url("./server-sidebar.css");
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    --webkit-font-smoothing: antialiased;
+  }
+  img,
+  video,
+  picture,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    line-height: 1;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+
+  /* Clears the "X"  from Chrome */
+  input[type="search"]::--webkit-search-decoration,
+  input[type="search"]::--webkit-search-cancel-button,
+  input[type="search"]::--webkit-search-results-button,
+  input[type="search"]::--webkit-search-results-decoration {
+    appearance: none;
+  }
+}
+
+@layer defaults {
+  body {
+    background: var(--bg-color);
+    color: var(--foreground-color);
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+  }
+  * {
+    outline: none;
+  }
+  *:focus-visible {
+    box-shadow: 0 0 0 0 0.25rem var(--outline-color);
+  }
+}
+
+@layer layouts {
+  .app-container {
+    display: grid;
+    grid-template-columns: auto 15rem 1fr auto;
+    grid-template-rows: 3rem 1fr;
+    grid-template-areas:
+      "servers channels chat-header chat-header"
+      "servers channels  chat chat-sidebar";
+    height: 100vh;
+  }
+}
+
+@layer utils {
+  .scrollbar-hidden {
+    scrollbar-width: none;
+  }
+}

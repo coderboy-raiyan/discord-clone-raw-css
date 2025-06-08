@@ -1,0 +1,17 @@
+@layer layout {
+  .server-sidebar {
+    position: relative;
+    grid-area: servers;
+    background-color: var(--bg-color-darker);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    overflow-y: auto;
+  }
+}
+
+@layer components {
+  .server {
+  }
+}
